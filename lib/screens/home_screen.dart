@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: Image.asset(
-                'assets/home_banner.png', // Ensure this image is added in assets/
+                'assets/home_banner.png', // Ensure this image exists
                 width: double.infinity,
                 fit: BoxFit.cover,
                 height: 200,
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
 
                 SizedBox(height: 15),
 
-                // Plan Meals Button
+                // Plan Meals Button - FIXED
                 ElevatedButton.icon(
                   onPressed: () => Navigator.pushNamed(context, '/meal-planner'),
                   icon: Icon(Icons.calendar_today, size: 28),
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
 
                 SizedBox(height: 15),
 
-                // Favorites Button
+                // Favorites Button - FIXED
                 ElevatedButton.icon(
                   onPressed: () => Navigator.pushNamed(context, '/favorites'),
                   icon: Icon(Icons.favorite, size: 28, color: Colors.red),
