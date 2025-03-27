@@ -58,6 +58,22 @@ flutter:
   uses-material-design: true
   assets:
     - assets/home_banner.png
+    - assets/beeftacos.jpeg
+    - assets/cauliflowerrice.jpeg
+    - assets/chickenstirfry.jpeg
+    - assets/chickpea.jpeg
+    - assets/grilledchicken.jpeg
+    - assets/grilledsalmon.jpeg
+    - assets/lentilsoup.jpeg
+    - assets/mushroomrisotto.jpeg
+    - assets/paneer.jpeg
+    - assets/pasta.jpeg
+    - assets/quinoabowl.jpeg
+    - assets/shrimp.jpeg
+    - assets/tofustirfry.jpeg
+    - assets/vegansalad.jpeg
+    - assets/vegetablestir.jpeg
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
