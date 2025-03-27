@@ -17,7 +17,11 @@ class RecipeListScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(recipes[index]),
-            onTap: () {}, // Navigation will be added later
+            onTap: () => Navigator.pushNamed(
+              context,
+              '/recipe-details',
+              arguments: recipes[index], // Pass recipe name
+            ),
           );
         },
       ),
