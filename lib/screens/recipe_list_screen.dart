@@ -14,13 +14,39 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
   ];
   
   String selectedFilter = "All";
+  String searchQuery = "";
 
   @override
   Widget build(BuildContext context) {
+    List<String> filteredRecipes = recipes.where((recipe) {
+      if (selectedFilter != "All" && !recipe.toLowerCase().contains(selectedFilter.toLowerCase())) {
+        return false;
+      }
+      if (searchQuery.isNotEmpty && !recipe.toLowerCase().contains(searchQuery.toLowerCase())) {
+        return false;
+      }
+      return true;
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(title: Text('Recipes')),
       body: Column(
         children: [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Search Recipes',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+              ),
+              onChanged: (query) {
+                setState(() {
+                  searchQuery = query;
+                });
+              },
+            ),
+          ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child: DropdownButton<String>(
@@ -37,14 +63,14 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: recipes.length,
+              itemCount: filteredRecipes.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(recipes[index]),
+                  title: Text(filteredRecipes[index]),
                   onTap: () => Navigator.pushNamed(
                     context,
                     '/recipe-details',
-                    arguments: recipes[index],
+                    arguments: filteredRecipes[index],
                   ),
                 );
               },
