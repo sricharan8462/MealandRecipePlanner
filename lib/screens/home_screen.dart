@@ -9,8 +9,17 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () {}, child: Text('View Recipes')),
-            ElevatedButton(onPressed: () {}, child: Text('Plan Meals')),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.restaurant_menu),
+              label: Text('View Recipes'),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.calendar_today),
+              label: Text('Plan Meals'),
+            ),
           ],
         ),
       ),
