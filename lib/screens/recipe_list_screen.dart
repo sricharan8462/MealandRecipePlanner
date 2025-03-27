@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 
 class RecipeListScreen extends StatelessWidget {
+  final List<String> recipes = [
+    "Vegan Salad",
+    "Gluten-Free Pasta",
+    "Chicken Stir Fry",
+    "Mushroom Risotto"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Recipes')),
-      body: Center(child: Text('Recipe List Screen')),
+      body: ListView.builder(
+        itemCount: recipes.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(recipes[index]),
+            onTap: () {}, // Navigation will be added later
+          );
+        },
+      ),
     );
   }
 }
