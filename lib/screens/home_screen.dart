@@ -10,13 +10,13 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/recipes'),
               icon: Icon(Icons.restaurant_menu),
               label: Text('View Recipes'),
             ),
             SizedBox(height: 10),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/meal-planner'),
               icon: Icon(Icons.calendar_today),
               label: Text('Plan Meals'),
             ),

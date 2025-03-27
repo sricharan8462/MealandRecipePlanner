@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
+import 'screens/recipe_list_screen.dart';
+import 'screens/meal_planner_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Recipe & Meal Planner',
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/recipes': (context) => RecipeListScreen(),
+        '/meal-planner': (context) => MealPlannerScreen(),
+      },
     );
   }
 }
