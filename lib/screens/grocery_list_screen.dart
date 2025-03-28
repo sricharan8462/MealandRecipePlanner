@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
-class GroceryListScreen extends StatelessWidget {
+class GroceryListScreen extends StatefulWidget {
   final Map<String, List<String>> ingredientMap;
 
   GroceryListScreen({required this.ingredientMap});
+
+  @override
+  _GroceryListScreenState createState() => _GroceryListScreenState();
+}
+
+class _GroceryListScreenState extends State<GroceryListScreen> {
+  List<String> groceryList = [];
 
   final Map<String, List<String>> recipeIngredients = {
     "Vegan Salad": ["1 cup lettuce", "1/2 cup cherry tomatoes", "1/4 cup cucumbers", "1 tbsp olive oil", "1 tsp lemon juice"],
@@ -23,36 +32,54 @@ class GroceryListScreen extends StatelessWidget {
     "Vegetable Stir Fry": ["1 cup broccoli", "1/2 cup bell peppers", "1/4 cup carrots", "1 tbsp soy sauce", "1 tsp ginger"],
   };
 
+  @override
+  void initState() {
+    super.initState();
+    _loadGroceryList();
+  }
+
   List<String> generateGroceryList() {
-    Set<String> groceryList = {};
-    ingredientMap.forEach((day, meals) {
+    Set<String> list = {};
+    widget.ingredientMap.forEach((day, meals) {
       for (String meal in meals) {
         if (recipeIngredients.containsKey(meal)) {
-          groceryList.addAll(recipeIngredients[meal]!);
+          list.addAll(recipeIngredients[meal]!);
         }
       }
     });
-    return groceryList.toList();
+    return list.toList();
+  }
+
+  void _saveGroceryList() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('groceryList', jsonEncode(groceryList));
+  }
+
+  void _loadGroceryList() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? storedData = prefs.getString('groceryList');
+    if (storedData != null) {
+      setState(() {
+        groceryList = List<String>.from(jsonDecode(storedData));
+      });
+    } else {
+      setState(() {
+        groceryList = generateGroceryList();
+      });
+      _saveGroceryList();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    List<String> groceryList = generateGroceryList();
-
     return Scaffold(
       appBar: AppBar(title: Text("Grocery List"), backgroundColor: Colors.deepOrange),
       body: groceryList.isEmpty
           ? Center(child: Text("No ingredients yet. Add meals first."))
           : ListView.builder(
-              padding: EdgeInsets.all(10),
               itemCount: groceryList.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: ListTile(
-                    leading: Icon(Icons.check_box_outline_blank),
-                    title: Text(groceryList[index]),
-                  ),
-                );
+                return ListTile(title: Text(groceryList[index]));
               },
             ),
     );
