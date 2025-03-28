@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               updateGroceryList: updateGroceryList,
             ),
         '/grocery-list': (context) => GroceryListScreen(
-              ingredientMap: mealPlan,
+              mealPlan: mealPlan, // ✅ FIXED: Changed from ingredientMap to mealPlan
             ),
         '/favorites': (context) => FavoritesScreen(
               favoriteRecipes: favoriteRecipes, // ✅ FIXED: Using correct parameter name
