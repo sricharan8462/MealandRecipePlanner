@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class MealPlannerScreen extends StatefulWidget {
   final Function(Map<String, List<String>>) updateGroceryList;
@@ -33,6 +35,12 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     "Paneer Butter Masala"
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadMealPlan();
+  }
+
   void _addMeal(String day) {
     showModalBottomSheet(
       context: context,
@@ -46,6 +54,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                 setState(() {
                   mealPlan[day]!.add(allRecipes[index]);
                 });
+                _saveMealPlan();
                 widget.updateGroceryList(mealPlan);
                 Navigator.pop(context);
               },
@@ -54,6 +63,21 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
         );
       },
     );
+  }
+
+  void _saveMealPlan() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('mealPlan', jsonEncode(mealPlan));
+  }
+
+  void _loadMealPlan() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? storedData = prefs.getString('mealPlan');
+    if (storedData != null) {
+      setState(() {
+        mealPlan = Map<String, List<String>>.from(jsonDecode(storedData));
+      });
+    }
   }
 
   @override
