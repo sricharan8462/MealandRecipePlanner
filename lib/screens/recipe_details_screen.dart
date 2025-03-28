@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 
 class RecipeDetailsScreen extends StatelessWidget {
+  final Function(String, String, List<String>) addMealToPlanner;
+  final Function(String, String) addToFavorites;
+
+  RecipeDetailsScreen({
+    required this.addMealToPlanner,
+    required this.addToFavorites,
+  });
+
   @override
   Widget build(BuildContext context) {
-    // FIX: Explicitly cast arguments to prevent IdentityMap error
+    // Ensure arguments are received correctly
     final Object? args = ModalRoute.of(context)!.settings.arguments;
 
     if (args == null || args is! Map<String, String>) {
@@ -354,7 +362,7 @@ class RecipeDetailsScreen extends StatelessWidget {
           "Cook for an additional 1-2 minutes until the sauce clings to the veggies.",
           "Remove from heat, sprinkle with chopped green onions, and serve hot over steamed rice or noodles."
         ]
-      }// Add remaining 13 recipes in the same format...
+      }
     };
 
     final List<String> ingredients = recipeDetails[recipeName]?["ingredients"] ?? [];
@@ -435,6 +443,7 @@ class RecipeDetailsScreen extends StatelessWidget {
                 children: [
                   ElevatedButton.icon(
                     onPressed: () {
+                      addMealToPlanner(recipeName, recipeImage, ingredients);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('$recipeName added to Meal Planner!')),
                       );
@@ -445,6 +454,7 @@ class RecipeDetailsScreen extends StatelessWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
+                      addToFavorites(recipeName, recipeImage);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('$recipeName added to Favorites!')),
                       );
