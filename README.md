@@ -1,61 +1,57 @@
 # 🍽️ Recipe & Meal Planner App
 
-A beautiful and intuitive Flutter application to **browse recipes**, **plan meals for the week**, **track grocery ingredients**, and **manage your favorite dishes**—all in one place!
+A beautiful and user-friendly Flutter mobile application designed to help users plan weekly meals, explore healthy recipes, mark favorites, and automatically generate grocery lists.
+
+## 📽️ Presentation Demo
+
+Watch the full app demo and project explanation on YouTube:  
+👉 [https://www.youtube.com/watch?v=fMNF72QH69c](https://www.youtube.com/watch?v=fMNF72QH69c)
 
 ---
 
 ## 📱 Features
 
-- 🔍 **Recipe Discovery**
-  - Browse a curated list of 15 delicious recipes.
-  - Filter by dietary preferences (Vegan, Gluten-Free, Vegetarian, Non-Vegetarian).
-  - Search recipes using a keyword-based search bar.
-
-- 📋 **Recipe Details**
-  - View detailed ingredients and preparation steps.
-  - Add any recipe to your weekly meal planner or favorites list.
-
-- 📆 **Weekly Meal Planner**
-  - Plan meals for each day of the week.
-  - Add recipes from a selection list.
-  - Visual display of meals planned per day.
-
-- 🛒 **Grocery List Generator**
-  - Automatically generates a grocery list based on your planned meals.
-  - Lists all required ingredients for quick shopping.
-
-- ❤️ **Favorites**
-  - Save your favorite recipes for quick access.
-  - Delete from favorites easily.
-
-- 💾 **Persistent Storage**
-  - All meal plans and favorite recipes are saved using `SharedPreferences` for offline access.
+- 🔍 **Browse Recipes**: Explore 15 healthy recipes with ingredients and preparation steps.
+- 🗓️ **Plan Weekly Meals**: Assign meals to specific days of the week using an intuitive interface.
+- ❤️ **Favorites**: Mark and manage your favorite recipes for quick access.
+- 🛒 **Grocery List**: Automatically generate a consolidated list of ingredients based on your meal plan.
+- 💾 **Local Storage**: Store meal plans and favorites for offline access.
 
 ---
 
-## 📸 Screenshots
+## 🧭 Navigation Flow
 
-| Home | Recipe List | Recipe Details |
-|------|-------------|----------------|
-| ![Home Screen]("C:\Users\user\Pictures\1.jpg") | ![List]("C:\Users\user\Pictures\2.jpg") | ![Details]("C:\Users\user\Pictures\3.jpg") |
-
-| Meal Planner | Grocery List | Favorites |
-|--------------|--------------|-----------|
-| ![Meal Planner]("C:\Users\user\Pictures\5.jpg") | ![Grocery List]("C:\Users\user\Pictures\6.jpg") | ![Favorites]("C:\Users\user\Pictures\4.jpg") |
+- Home → Recipe List → Recipe Details  
+- Home → Meal Planner → Add Meals → Grocery List  
+- Home → Favorites → View Details  
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Flutter** (Dart)
-- **SharedPreferences** for local storage
-- **Material UI** for clean and responsive design
+- **Flutter** (Frontend)
+- **Dart** (Logic)
+- **SharedPreferences** (Local storage)
+- **Material Design** (UI)
 
 ---
 
-## 🚀 Getting Started
+## ✨ Screens Overview
 
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/your-username/recipe-meal-planner-app.git
+- **Home Screen**: Entry point with options to browse, plan, view favorites.
+- **Recipe List**: Grid layout showing recipe cards.
+- **Recipe Details**: Ingredients + preparation steps with buttons to add to planner or favorites.
+- **Meal Planner**: Day-wise meal allocation with dialog-based selection.
+- **Grocery List**: Compiles ingredients from selected meals.
+- **Favorites**: Manages saved recipes with image, name, and delete functionality.
+
+---
+
+## 📷 Preview
+
+> Include some screenshots or GIFs of your app interface here.
+
+---
+
+## 📂 Project Structure
 
