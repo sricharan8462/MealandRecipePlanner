@@ -53,5 +53,23 @@ Watch the full app demo and project explanation on YouTube:
 
 ---
 
-## 📂 Project Structure
+## 📌 How to Run
+
+1. Clone the repo  
+2. Run `flutter pub get`  
+3. Use `flutter run` (ensure device/emulator is connected)
+4. Add images under `/assets` and declare them in `pubspec.yaml`.
+
+---
+
+## 🤝 Team Name
+
+**Mobile MealMasters**
+
+---
+
+## 📬 License
+
+This project is for educational purposes. Feel free to modify it for learning and experimentation.
+
 
