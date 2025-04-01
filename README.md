@@ -37,11 +37,11 @@ A beautiful and intuitive Flutter application to **browse recipes**, **plan meal
 
 | Home | Recipe List | Recipe Details |
 |------|-------------|----------------|
-| ![Home Screen](screenshots/home.png) | ![List](screenshots/list.png) | ![Details](screenshots/details.png) |
+| ![Home Screen]("C:\Users\user\Pictures\1.jpg") | ![List]("C:\Users\user\Pictures\2.jpg") | ![Details]("C:\Users\user\Pictures\3.jpg") |
 
 | Meal Planner | Grocery List | Favorites |
 |--------------|--------------|-----------|
-| ![Meal Planner](screenshots/mealplanner.png) | ![Grocery List](screenshots/grocery.png) | ![Favorites](screenshots/favorites.png) |
+| ![Meal Planner]("C:\Users\user\Pictures\5.jpg") | ![Grocery List]("C:\Users\user\Pictures\6.jpg") | ![Favorites]("C:\Users\user\Pictures\4.jpg") |
 
 ---
 
